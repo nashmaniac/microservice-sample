@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: helloworld
+      POSTGRES_DB: auth_microservice
+      POSTGRES_USER: postgres
+  auth:
+    build:
+      context: .
+    environment:
+      host: db
+      port: 5432
+      database: auth_microservice
+      user: postgres
+      password: helloworld
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
