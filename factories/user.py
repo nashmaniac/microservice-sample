@@ -8,3 +8,6 @@ class UserFactory(object):
         u.save()
         return u
 
+    @classmethod
+    def get_all_users(cls):
+        return User.all()

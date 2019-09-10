@@ -3,9 +3,9 @@ from factories import UserFactory
 users_bp = Blueprint('users', __name__, url_prefix='/users')
 
 
-@users_bp.route('/all')
+@users_bp.route('/all', methods=['GET'])
 def users_all():
-    return "GET all users"
+    return dict(users=UserFactory.get_all_users().serialize())
 
 
 @users_bp.route('/create', methods=['POST'])
