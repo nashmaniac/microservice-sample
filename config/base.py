@@ -1,2 +1,2 @@
 class BaseConfig(object):
-    pass
+    DATABASE_CONFIG = "HELLO"
